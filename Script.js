@@ -8,7 +8,8 @@ function nextPage() {
     localStorage.setItem("name", name);
     localStorage.setItem("units", units);
 
-    window.location.href = "output.html";
+    window.location.href = "/output";
+
 }
 
 // When output.html loads, display values
