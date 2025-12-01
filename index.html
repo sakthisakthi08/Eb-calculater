@@ -1,29 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>EB Bill</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
-  <h2>EB Bill Calculator</h2>
+  <div class="total-eb">
+    <!-- INPUT FORM -->
+    <div class="container">
+      <h2 class="Eb">EB Bill Calculator</h2>
 
-  <label>EB Number</label>
-  <input type="text" id="ebNumber">
+      <label>EB Number</label>
+      <input type="text" id="ebNumber">
 
-  <label>Client Name</label>
-  <input type="text" id="clientName">
+      <label>Client Name</label>
+      <input type="text" id="clientName">
 
-  <label>Units Used</label>
-  <input type="number" id="units">
+      <label>Units Used</label>
+      <input type="number" id="units">
 
-  <button onclick="nextPage()">Submit</button>
-</div>
+      <button onclick="nextPage()">Submit</button>
+    </div>
 
-<!-- Correct Script -->
-<script src="script.js"></script>
+    <!-- BILL OUTPUT -->
+    <div class="bill-wrapper" id="billBox" style="display: none;">
 
+      <h2 class="tneb-title">TAMIL NADU ELECTRICITY BOARD</h2>
+      <p class="description">TANGEDCO – Consumer Electricity Billing Statement</p>
+
+      <div class="details-section">
+        <p><strong>Client Name:</strong> <span id="oName"></span></p>
+        <p><strong>EB Number:</strong> <span id="oEb"></span></p>
+        <p><strong>Address:</strong> <span id="fullAddress">Pudukkottai, Tamil Nadu, India</span></p>
+      </div>
+
+      <div class="side-info">
+        <p><strong>Units Used:</strong> <span id="oUnits"></span></p>
+        <p><strong>Total Amount:</strong> ₹ <span id="oAmount"></span></p>
+        <p><strong>Bill Date:</strong> <span id="billDate"></span></p>
+        <p><strong>Last Date:</strong> <span id="dueDate"></span></p>
+        <p><strong>Branch:</strong> Pudukkottai</p>
+      </div>
+
+      <p class="words">Amount in Words: <span id="words"></span></p>
+
+      <div class="help-line">
+        <p><strong>Help Line:</strong> 1912 (TNEB Customer Care)</p>
+      </div>
+
+      <div class="office-address">
+        <p><strong>TN EB Office Address:</strong> Pudukkottai TANGEDCO Section Office,<br>
+          East Main Street, Pudukkottai, Tamil Nadu, India</p>
+      </div>
+
+      <div class="signature-box">
+        <p>Authorised Officer</p>
+        <div class="sign-line"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
+
 </html>

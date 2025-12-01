@@ -1,234 +1,111 @@
-/* --- FULL PAGE CENTER --- */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #ff9800, #ff5722);
-  height: 100vh;
-
+/* Container center */
+.total-eb {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-/* --- MAIN INPUT BOX --- */
+/* Input Page */
 .container {
   width: 350px;
   background: #ffffff;
-  padding: 70px;
-  border-radius: 18px;
-  margin-top: 60px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  padding: 25px;
+  margin-top: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+}
+
+.container h2 {
   text-align: center;
+  margin-bottom: 15px;
+  color: #1e3a8a;
 }
 
-/* --- HEADING --- */
-h2 {
-  font-size: 22px;
-  margin-bottom: 20px;
-  color: #ff5722;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-/* --- LABELS --- */
 label {
-  display: block;
-  text-align: left;
-  margin-top: 12px;
-  font-size: 15px;
   font-weight: 600;
-  color: #d84315;
+  margin-top: 12px;
+  display: block;
 }
 
-/* --- INPUT FIELDS --- */
 input {
   width: 100%;
   padding: 10px;
   margin-top: 6px;
-
-  border: 2px solid #ffab91;
+  border: 1.5px solid #cbd5e1;
   border-radius: 8px;
-
-  font-size: 15px;
-  transition: 0.25s;
 }
 
-input:focus {
-  border-color: #ff5722;
-  box-shadow: 0 0 6px rgba(255, 87, 34, 0.5);
-  outline: none;
-}
-
-/* --- BUTTON --- */
 button {
   width: 100%;
-  padding: 12px;
-  margin-top: 20px;
-
-  background: linear-gradient(90deg, #ff5722, #ff9800);
-  color: white;
-
+  margin-top: 15px;
+  padding: 10px;
+  background: #2563eb;
   border: none;
+  color: white;
   border-radius: 8px;
-  font-size: 17px;
-  font-weight: 600;
-
+  font-size: 16px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 button:hover {
-  background: linear-gradient(90deg, #e64a19, #ff7043);
+  background: #1e40af;
 }
 
+/* OUTPUT CENTER / A4 */
 
 
-
-
-
-body {
-  margin: 0;
-  padding: 0;
-  background: #e9ecef;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  font-family: Arial, sans-serif;
-}
-
-.bill-wrapper {
-  width: 750px;
-  background: white;
-  padding: 25px 35px;
-  margin-top: 20px;
-  border: 2px dotted #333;
-}
-
+/* Title */
 .tneb-title {
   text-align: center;
-  color: #004aad;
-  font-size: 24px;
-  font-weight: bold;
+  color: #1e3a8a;
+  font-size: 26px;
 }
 
 .description {
   text-align: center;
-  color: #444;
-  font-size: 18px;
-  margin-top: -5px;
   margin-bottom: 20px;
+  color:#fe8d59;
 }
 
 .details-section {
-  border: 1px solid #aaa;
-  padding: 10px 15px;
-  background: #f7f9fb;
-  margin-bottom: 20px;
-  font-size: 18px;
-}
-
-.details-section p {
-  margin: 8px 0;
+  background: #f1f5f9;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 25px;
 }
 
 .side-info {
-  border: 1px solid #888;
-  padding: 10px 15px;
-  margin-bottom: 20px;
-  width: 50%;
-  margin-left: auto;
-  font-size: 18px;
-  background: #fffdfa;
-}
-
-.bill-frame {
-  border: 3px solid red;
+  background: #e0f2fe;
   padding: 15px;
-  height: 210px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.left-box,
-.right-box {
-  width: 28%;
-  height: 100%;
-  border: 2px solid red;
-  text-align: center;
-  padding-top: 10px;
-}
-
-.label {
-  color: red;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.value {
-  font-size: 26px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.amount {
-  font-size: 26px;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-.stamp-box {
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.stamp-circle {
-  width: 150px;
-  height: 150px;
-  border: 3px solid #0077c2;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #0077c2;
-  font-size: 20px;
-  font-weight: bold;
+  border-left: 5px solid #0284c7;
+  margin-bottom: 25px;
+  border-radius: 10px;
 }
 
 .words {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 20px;
 }
 
-/* HELP LINE */
 .help-line {
-  margin-top: 20px;
-  font-size: 18px;
-  border-top: 1px dashed #999;
-  padding-top: 10px;
+  background: #fef3c7;
+  padding: 15px;
+  border-left: 5px solid #f59e0b;
+  border-radius: 10px;
 }
 
-/* OFFICE ADDRESS */
 .office-address {
-  margin-top: 10px;
-  font-size: 18px;
+  margin-top: 20px;
 }
 
-/* SIGNATURE */
 .signature-box {
-  margin-top: 25px;
   text-align: right;
-  font-size: 18px;
-  margin-right: 40px;
+  margin-top: 40px;
 }
 
 .sign-line {
   width: 200px;
   height: 2px;
-  background: #333;
-  margin-left: auto;
+  background: black;
+  float: right;
 }

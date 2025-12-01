@@ -1,79 +1,68 @@
-// Save and go to next page
 function nextPage() {
     const eb = document.getElementById("ebNumber").value;
     const name = document.getElementById("clientName").value;
-    const units = document.getElementById("units").value;
+    const units = Number(document.getElementById("units").value);
 
-    localStorage.setItem("eb", eb);
-    localStorage.setItem("name", name);
-    localStorage.setItem("units", units);
+    if (!eb || !name || !units) {
+        alert("Please fill all fields");
+        return;
+    }
 
-    window.location.href = "/output";
+    // BILL AMOUNT CALCULATION
+    let amount = 0;
+    if (units <= 100) {
+        amount = 0;  
+    } else if (units <= 200) {
+        amount = (units - 100) * 2.25;
+    } else if (units <= 500) {
+        amount = (100 * 2.25) + ((units - 200) * 4.5);
+    } else {
+        amount = (100 * 2.25) + (300 * 4.5) + ((units - 500) * 6);
+    }
 
+    amount = amount.toFixed(2);
+
+    // SAVE OUTPUT
+    document.getElementById("oEb").textContent = eb;
+    document.getElementById("oName").textContent = name;
+    document.getElementById("oUnits").textContent = units;
+    document.getElementById("oAmount").textContent = amount;
+
+    // ADDRESS AUTO
+    document.getElementById("fullAddress").textContent =
+        `${name}, Pudukkottai, Tamil Nadu, India`;
+
+    // DATE
+    const today = new Date();
+    const billDate = today.toLocaleDateString("en-IN");
+    const due = new Date();
+    due.setDate(today.getDate() + 7);
+    const dueDate = due.toLocaleDateString("en-IN");
+
+    document.getElementById("billDate").textContent = billDate;
+    document.getElementById("dueDate").textContent = dueDate;
+
+    // AMOUNT IN WORDS
+    document.getElementById("words").textContent = numberToWords(Math.floor(amount)) + " rupees only";
+
+    // HIDE INPUT & SHOW BILL
+    document.querySelector(".container").style.display = "none";
+    document.getElementById("billBox").style.display = "block";
 }
 
-// When output.html loads, display values
-if (window.location.pathname.includes("output.html")) {
+// NUMBER → WORDS
+function numberToWords(num) {
+    const words = [
+        "zero","one","two","three","four","five","six","seven","eight","nine","ten",
+        "eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen",
+        "eighteen","nineteen"
+    ];
 
-    const eb = localStorage.getItem("eb");
-    const name = localStorage.getItem("name");
-    const units = Number(localStorage.getItem("units"));
+    const tens = ["", "", "twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"];
 
-    document.getElementById("oEb").innerText = eb;
-    document.getElementById("oName").innerText = name;
-    document.getElementById("oUnits").innerText = units;
+    if (num < 20) return words[num];
+    if (num < 100) return tens[Math.floor(num / 10)] + " " + words[num % 10];
+    if (num < 1000) return words[Math.floor(num / 100)] + " hundred " + numberToWords(num % 100);
 
-    // ---- TN EB Calculator ----
-    let total = 0;
-
-    if (units <= 100) {
-        total = 0;
-    } 
-    else if (units <= 200) {
-        total = (units - 100) * 2.25;
-    } 
-    else if (units <= 400) {
-        total = (100 * 2.25) + ((units - 200) * 4.50);
-    } 
-    else if (units <= 500) {
-        total = (100 * 2.25) + (200 * 4.50) + ((units - 400) * 6.00);
-    } 
-    else {
-        total = (100 * 2.25) + (200 * 4.50) + (100 * 6.00) + ((units - 500) * 8.00);
-    }
-
-    document.getElementById("oAmount").innerText = total.toFixed(2);
-
-    // ---------------------------
-    // ADD: Current Date & Time
-    // ---------------------------
-    function formatDateTime() {
-        const now = new Date();
-
-        const date = now.toLocaleDateString("en-IN", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric"
-        });
-
-        const time = now.toLocaleTimeString("en-IN", {
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit"
-        });
-
-        return `${date} ${time}`;
-    }
-
-    // Bill Date → current date & time
-    document.getElementById("billDate").innerText = formatDateTime();
-
-    // Due Date → +7 days
-    let due = new Date();
-    due.setDate(due.getDate() + 7);
-    document.getElementById("dueDate").innerText = due.toLocaleDateString("en-IN");
-
-    // Address Auto-Fill
-    document.getElementById("fullAddress").innerText = 
-        "Pudukkottai, Tamil Nadu, India";
+    return "";
 }
